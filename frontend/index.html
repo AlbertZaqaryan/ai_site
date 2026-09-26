@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diabetes Risk Assessment</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Diabetes Risk Predictor</h1>
+      <p>Powered by Scikit-Learn Decision Tree Classifier</p>
+    </header>
+
+    <div class="card">
+      <form id="diabetesForm">
+        <div class="grid">
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender" required>
+              <option value="0">Female (0)</option>
+              <option value="1">Male (1)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="age">Age (years)</label>
+            <input type="number" id="age" min="1" max="120" step="1" value="16" required />
+          </div>
+
+          <div class="form-group">
+            <label for="hypertension">Hypertension</label>
+            <select id="hypertension" required>
+              <option value="0">No (0)</option>
+              <option value="1">Yes (1)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="heart_disease">Heart Disease</label>
+            <select id="heart_disease" required>
+              <option value="0">No (0)</option>
+              <option value="1">Yes (1)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="smoking_history">Smoking History</label>
+            <select id="smoking_history" required>
+              <option value="0">Never (0)</option>
+              <option value="1">Current (1)</option>
+              <option value="2">Former (2)</option>
+              <option value="3">Ever (3)</option>
+              <option value="4">Not Current (4)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="bmi">BMI (Body Mass Index)</label>
+            <input type="number" id="bmi" step="0.1" min="10" max="70" value="31.7" required />
+          </div>
+
+          <div class="form-group">
+            <label for="HbA1c_level">HbA1c Level (%)</label>
+            <input type="number" id="HbA1c_level" step="0.1" min="3" max="15" value="3.0" required />
+          </div>
+
+          <div class="form-group">
+            <label for="blood_glucose_level">Blood Glucose (mg/dL)</label>
+            <input type="number" id="blood_glucose_level" min="40" max="400" value="100" required />
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <button type="submit" id="submitBtn">Run Prediction</button>
+          <button type="button" id="loadPresetBtn">Load Notebook Sample [1, 16, 0, 0, 0, 31.7, 3, 100]</button>
+        </div>
+      </form>
+
+      <!-- Results section -->
+      <div id="resultBox" class="result-box hidden">
+        <h3 id="resultTitle">Prediction Result</h3>
+        <p id="resultText"></p>
+        <p id="probaText"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
